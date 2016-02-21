@@ -13,14 +13,15 @@ Vagrant.configure(2) do |config|
   #   config.vm.network "forwarded_port", guest: i, host: i
   # end
 
-  # 自定義私有IP
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  # Host-only Adapter
+  # config.vm.network "private_network", type: "dhcp"
+  config.vm.network "private_network", ip: "192.168.56.111"
 
-  # 公用網路
-  # config.vm.network "public_network"
+  # 橋接公用網路
+  # config.vm.network "public_network", use_dhcp_assigned_default_route: true
 
   #共用資料夾
-  config.vm.synced_folder "C:/Developer", "/Developer"
+  # config.vm.synced_folder "C:/Developer", "/Developer"
 
   # 定義虛擬機
   config.vm.provider "virtualbox" do |vb|
